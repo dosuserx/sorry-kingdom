@@ -47,6 +47,7 @@ ui_right={
 2d_render/layer_2="player"
 2d_render/layer_3="items"
 2d_render/layer_4="others"
+2d_render/layer_5="ui"
 
 [rendering]
 
