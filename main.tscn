@@ -1,13 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tiles/bbricks.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/bricks.brown.png" type="Texture" id=2]
 [ext_resource path="res://scripts/armor.gd" type="Script" id=3]
+[ext_resource path="res://assets/Aileron.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/Aileron-Regular.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://main.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.46694, 18.1565 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 14
+font_data = ExtResource( 5 )
+
 [node name="main" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="enviro" type="Node" parent="."]
 
@@ -23,7 +31,7 @@ __meta__ = {
 [node name="player" type="Node" parent="."]
 
 [node name="armor" type="KinematicBody2D" parent="player"]
-position = Vector2( 200, 504 )
+position = Vector2( 199.302, 302.18 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -46,96 +54,96 @@ region_rect = Rect2( 48, 128, 32, 48 )
 position = Vector2( 0, -60 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
+limit_smoothed = true
+drag_margin_h_enabled = true
 smoothing_enabled = true
+drag_margin_left = 0.1
+drag_margin_right = 0.1
 
-[node name="MarginContainer" type="MarginContainer" parent="player/armor/Camera2D"]
-margin_left = -255.0
+[node name="uiBox" type="MarginContainer" parent="player/armor/Camera2D"]
+margin_left = 147.0
 margin_top = -150.0
 margin_right = 255.0
-margin_bottom = 150.0
+margin_bottom = -39.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="player/armor/Camera2D/MarginContainer"]
-margin_right = 510.0
-margin_bottom = 300.0
+[node name="tVB" type="VBoxContainer" parent="player/armor/Camera2D/uiBox"]
+margin_right = 108.0
+margin_bottom = 111.0
 
-[node name="CenterContainer" type="CenterContainer" parent="player/armor/Camera2D/MarginContainer/VBoxContainer"]
-margin_right = 510.0
-margin_bottom = 14.0
+[node name="titleCC" type="CenterContainer" parent="player/armor/Camera2D/uiBox/tVB"]
+margin_right = 108.0
+margin_bottom = 18.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/CenterContainer"]
-margin_left = 242.0
-margin_right = 268.0
-margin_bottom = 14.0
+[node name="titleLabel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/titleCC"]
+margin_left = 28.0
+margin_right = 80.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+text = "debugs:"
+
+[node name="dVB" type="VBoxContainer" parent="player/armor/Camera2D/uiBox/tVB"]
+margin_top = 22.0
+margin_right = 108.0
+margin_bottom = 69.0
+
+[node name="spdHB" type="HBoxContainer" parent="player/armor/Camera2D/uiBox/tVB/dVB"]
+margin_right = 108.0
+margin_bottom = 13.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="title" type="Label" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer2"]
-margin_right = 26.0
-margin_bottom = 14.0
-text = "title"
+[node name="spdLabel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB/spdHB"]
+margin_right = 29.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 4 )
+text = "speed:"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="player/armor/Camera2D/MarginContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 510.0
-margin_bottom = 86.0
+[node name="spdPanel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB/spdHB"]
+margin_left = 33.0
+margin_right = 39.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 4 )
+text = "0"
 
-[node name="CenterContainer" type="CenterContainer" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/VBoxContainer2"]
-margin_right = 510.0
-margin_bottom = 14.0
+[node name="accHB" type="HBoxContainer" parent="player/armor/Camera2D/uiBox/tVB/dVB"]
+margin_top = 17.0
+margin_right = 108.0
+margin_bottom = 30.0
 
-[node name="title" type="Label" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/VBoxContainer2/CenterContainer"]
-margin_left = 239.0
-margin_right = 271.0
-margin_bottom = 14.0
-text = "table"
+[node name="accLabel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB/accHB"]
+margin_right = 24.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 4 )
+text = "accel:"
 
-[node name="title2" type="Label" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/VBoxContainer2"]
-margin_top = 18.0
-margin_right = 510.0
-margin_bottom = 32.0
-text = "table"
+[node name="accPanel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB/accHB"]
+margin_left = 28.0
+margin_right = 34.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 4 )
+text = "0"
 
-[node name="title3" type="Label" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/VBoxContainer2"]
-margin_top = 36.0
-margin_right = 510.0
-margin_bottom = 50.0
-text = "table"
+[node name="frcHB" type="HBoxContainer" parent="player/armor/Camera2D/uiBox/tVB/dVB"]
+margin_top = 34.0
+margin_right = 108.0
+margin_bottom = 47.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/VBoxContainer2"]
-margin_top = 54.0
-margin_right = 510.0
-margin_bottom = 68.0
-
-[node name="title4" type="Label" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer2"]
+[node name="frcLabel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB/frcHB"]
 margin_right = 32.0
-margin_bottom = 14.0
-text = "table"
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 4 )
+text = "friction:"
 
-[node name="title5" type="Label" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer2"]
+[node name="frcPanel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB/frcHB"]
 margin_left = 36.0
-margin_right = 68.0
-margin_bottom = 14.0
-text = "table"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/VBoxContainer2"]
-visible = false
-margin_right = 510.0
-margin_bottom = 14.0
-
-[node name="title2" type="Label" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_right = 32.0
-margin_bottom = 14.0
-text = "table"
-
-[node name="title3" type="Label" parent="player/armor/Camera2D/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_left = 36.0
-margin_right = 68.0
-margin_bottom = 14.0
-text = "table"
+margin_right = 42.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 4 )
+text = "0"
 
 [node name="items" type="Node" parent="."]
 
