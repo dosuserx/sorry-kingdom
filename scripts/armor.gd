@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export (int) var speed = 400
+export (int) var maxSpeed = 400
 export (int) var jump_speed = -500
 export (int) var gravity = 4000
 export (float, 0, 1.0) var friction = 0.1
@@ -27,6 +28,18 @@ func get_input():
 	if Input.is_action_pressed("debugSpeedDn"):
 		if speed > 0:
 			speed -= 1
+	if Input.is_action_pressed("debugAccelerationUp"):
+		if acceleration < 1:
+			acceleration += 0.005
+	if Input.is_action_pressed("debugAccelerationDn"):
+		if acceleration > 0.005:
+			acceleration -= 0.005
+	if Input.is_action_pressed("debugFrictionUp"):
+		if friction < 1:
+			friction += 0.005
+	if Input.is_action_pressed("debugFrictionDn"):
+		if friction > 0.005:
+			friction -= 0.005
 	
 func _physics_process(delta):
 	get_input()

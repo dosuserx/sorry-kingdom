@@ -54,11 +54,14 @@ region_rect = Rect2( 48, 128, 32, 48 )
 position = Vector2( 0, -60 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
-limit_smoothed = true
 drag_margin_h_enabled = true
+drag_margin_v_enabled = true
 smoothing_enabled = true
-drag_margin_left = 0.1
-drag_margin_right = 0.1
+smoothing_speed = 10.0
+drag_margin_left = 0.43
+drag_margin_right = 0.42
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="uiBox" type="MarginContainer" parent="player/armor/Camera2D"]
 margin_left = 147.0
@@ -71,7 +74,7 @@ __meta__ = {
 
 [node name="tVB" type="VBoxContainer" parent="player/armor/Camera2D/uiBox"]
 margin_right = 108.0
-margin_bottom = 111.0
+margin_bottom = 137.0
 
 [node name="titleCC" type="CenterContainer" parent="player/armor/Camera2D/uiBox/tVB"]
 margin_right = 108.0
@@ -141,6 +144,70 @@ text = "friction:"
 [node name="frcPanel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB/frcHB"]
 margin_left = 36.0
 margin_right = 42.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 4 )
+text = "0"
+
+[node name="dVB2" type="VBoxContainer" parent="player/armor/Camera2D/uiBox/tVB"]
+margin_top = 73.0
+margin_right = 108.0
+margin_bottom = 120.0
+
+[node name="grvHB" type="HBoxContainer" parent="player/armor/Camera2D/uiBox/tVB/dVB2"]
+margin_right = 108.0
+margin_bottom = 13.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="grvLabel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB2/grvHB"]
+margin_right = 21.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 4 )
+text = "grav:"
+
+[node name="grvPanel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB2/grvHB"]
+margin_left = 25.0
+margin_right = 31.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 4 )
+text = "0"
+
+[node name="VelxHB" type="HBoxContainer" parent="player/armor/Camera2D/uiBox/tVB/dVB2"]
+margin_top = 17.0
+margin_right = 108.0
+margin_bottom = 30.0
+
+[node name="velxLabel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB2/VelxHB"]
+margin_right = 21.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 4 )
+text = "Vel.X"
+
+[node name="velxBar" type="ProgressBar" parent="player/armor/Camera2D/uiBox/tVB/dVB2/VelxHB"]
+margin_left = 25.0
+margin_right = 108.0
+margin_bottom = 13.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -500.0
+max_value = 500.0
+percent_visible = false
+
+[node name="jmpHB" type="HBoxContainer" parent="player/armor/Camera2D/uiBox/tVB/dVB2"]
+margin_top = 34.0
+margin_right = 108.0
+margin_bottom = 47.0
+
+[node name="jmpLabel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB2/jmpHB"]
+margin_right = 25.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 4 )
+text = "jump:"
+
+[node name="jmpPanel" type="Label" parent="player/armor/Camera2D/uiBox/tVB/dVB2/jmpHB"]
+margin_left = 29.0
+margin_right = 35.0
 margin_bottom = 13.0
 custom_fonts/font = ExtResource( 4 )
 text = "0"
