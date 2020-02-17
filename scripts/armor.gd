@@ -30,16 +30,16 @@ func get_input():
 			speed -= 1
 	if Input.is_action_pressed("debugAccelerationUp"):
 		if acceleration < 1:
-			acceleration += 0.005
+			acceleration += 0.0005
 	if Input.is_action_pressed("debugAccelerationDn"):
 		if acceleration > 0.005:
-			acceleration -= 0.005
+			acceleration -= 0.0005
 	if Input.is_action_pressed("debugFrictionUp"):
 		if friction < 1:
-			friction += 0.005
+			friction += 0.0005
 	if Input.is_action_pressed("debugFrictionDn"):
 		if friction > 0.005:
-			friction -= 0.005
+			friction -= 0.0005
 	
 func _physics_process(delta):
 	get_input()
@@ -48,5 +48,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jumpBtn"):
 		if is_on_floor():
 			velocity.y = jump_speed
+			
+	print("s:", speed, " & a:", acceleration, " & f:", friction)
 	
 	

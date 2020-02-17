@@ -95,10 +95,10 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 32, 0, 32 )
 [sub_resource type="ConvexPolygonShape2D" id=31]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="ConvexPolygonShape2D" id=33]
+[sub_resource type="ConvexPolygonShape2D" id=32]
 points = PoolVector2Array( 0, 0, 48, 0, 48, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=32]
+[sub_resource type="ConvexPolygonShape2D" id=33]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [resource]
@@ -333,7 +333,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 32 ),
+"shape": SubResource( 33 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
@@ -722,7 +722,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 33 ),
+"shape": SubResource( 32 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 40/z_index = 0
