@@ -17,3 +17,10 @@
 #	accOut.set_text(String(sryKnight.acceleration))
 #	frcOut.set_text(String(sryKnight.friction))
 #	velxOut.set_value(velx)
+
+
+#---- idea: when pressing down, collision box of one-way platforms 
+#----            rotate 180 when pressing down AND jump
+
+#---- idea: when pressing down, collision box of one-way platforms 
+#----           ->

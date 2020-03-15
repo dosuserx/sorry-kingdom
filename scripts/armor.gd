@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
-export (int) var speed = 400
+export (int) var speed = 200
 export (int) var maxSpeed = 400
 export (int) var jump_speed = -500
 export (int) var gravity = 4000
-export (float, 0, 1.0) var friction = 0.1
+export (float, 0, 1.0) var friction = 0.15
 export (float, 0, 1.0) var acceleration = 0.1
 
 var velocity = Vector2.ZERO
@@ -49,6 +49,6 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.y = jump_speed
 			
-	print("s:", speed, " & a:", acceleration, " & f:", friction)
+#	print("s:", speed, " & a:", acceleration, " & f:", friction)
 	
 	
